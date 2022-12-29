@@ -22,17 +22,24 @@ if(number > 0){
 //       Yes | No
 
 // 영화 봤니?
-let didWatchMovie;
+let didWatchMovie = 'yes';
 
 // 영화 볼거니?
-let goingToWatchMovie;
+let goingToWatchMovie = 'no';
 
 
-// if 문(statement)
+if(didWatchMovie.includes('yes')){ // if 문(statement)
+  console.log('그거 재밌더라..?');
+}else if(goingToWatchMovie === 'yes'){ // else if 복수 조건 처리
+  console.log('같이 보러가자');
+}else{ // else 절(caluse)
+  console.log('아니 난 보기가 싫네');
+}
 
-// else 절(caluse)
+let movieMessage =
+(didWatchMovie.includes('yes')) ? '그거 재밌더라':
+(goingToWatchMovie === 'yes') ? '같이 보러 가자' : '아니 난 보기가 싫네'
 
-// else if 복수 조건 처리
 
 // 조건부 연산자
 
