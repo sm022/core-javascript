@@ -44,3 +44,12 @@ for (let key in javaScript){
 // for ~ in 문
 // - 객체 자신의 속성만 순환하려면?
 // - 배열 객체 순환에 사용할 경우?
+
+
+let tens = [10, 100, 1000, 10000];
+
+for(let value in tens){
+  if( ({}).hasOwnProperty.call(tens,value)){
+    console.log(tens[value]);
+  }
+}
