@@ -58,7 +58,8 @@ const languages = [
 for(let value of languages){
   // console.table(value.name);
 
-  if(value.name === 'Java') continue;
+  let name = value.name;
+  if(name.includes('C#')) break;
 
   console.table(value);
 
@@ -110,3 +111,11 @@ const randomUser = {
 // - for ~ in 문
 // - for ~ of 문
 // - 성능 비교 진단
+
+
+for(let value in randomUser){
+  let L1 = randomUser[value];
+  if(typeof L1 === 'object'){
+    for(let value in L1 );
+  }
+}
