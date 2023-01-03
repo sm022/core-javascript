@@ -113,9 +113,32 @@ const randomUser = {
 // - 성능 비교 진단
 
 
-for(let value in randomUser){
-  let L1 = randomUser[value];
-  if(typeof L1 === 'object'){
-    for(let value in L1 );
-  }
-}
+// for(let value in randomUser){
+//   let L1 = randomUser[value];
+//   if(typeof L1 === 'object'){
+//     for(let value in L1 );
+//   }
+// }
+
+// for(let key in randomUser){
+
+//   let L1 = randomUser[key];
+
+//   if(({}).hasOwnProperty.call(randomUser,key)){
+//     console.log('L1 : ', key);
+
+//     if(typeof L1 === 'object'){
+//       for(let key in L2){
+      
+//         let L2 = L1[key];
+//         if(({}).hasOwnProperty.call(randomUser,key)){
+          
+//           console.log('\t L2 : ', key);
+          
+//           if(typeof L2 === 'object'){
+    
+//       }
+//     }
+//    }
+//   }
+// }
