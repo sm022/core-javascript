@@ -21,12 +21,12 @@ let calculateTotal = function () {
   
   // console.log(arguments);
 
-  //함수 안에서만 접근 가능한 인수들의 집합 객체로서 배열과 유사하여 유사 배열 타입으로 불리는 변수 : arguments
+  // 함수 안에서만 접근 가능한 인수들의 집합 객체로서 배열과 유사하여 유사 배열 타입으로 불리는 변수 : arguments
   // arguments 객체를 사용해 함수의 매개변수 없이 아이템의 총합을 구할 수 있다
 
   // 유사배열은 배열이 아니다. 고로 배열의 능력을 사용하려면 진.짜. 배열로 만들어야 한다.
   // 배열의 능력 : forEach, reduce
-  
+
   let total = 0;
 
   let arr = Array.from(arguments) // static method
@@ -71,13 +71,61 @@ let anonymousFunctionExpression = function (){};
 let namedFunctionExpression = function hello (){ };
 
 
+
 // 콜백 함수 (표현)식
-let callbackFunctionExpression;
+let callbackFunctionExpression = function (url,resolve,reject){
+
+  // if(typeof url === 'string' && url.includes('http') && url.includes('www')){
+  if(typeof url === 'string' && url.match(/http.+www/)){  
+    resolve(url)
+  }else{
+    reject()
+  }
+
+};
+
+
+callbackFunctionExpression(
+  'https://www.naver.com', 
+  function (url){
+    console.log(`${url}해당 페이지로 이동합니다`);
+  },
+  function (){
+    throw new Error('url 입력 정보가 올바르지 않습니다.');
+  }
+)
+
+
+/* 
+forEach(function(currentValue, index, array){}, thisArg) <- 이렇게 구현되어 있음
+arr. forEach(function(item,index){}) 
+*/
+
 
 
 // 함수 선언문 vs. 함수 (표현)식
+function aa(){
+
+}
+
+const bb = function(){}
 
 
-// 즉시 실행 함수 (표현)식
+// 즉시 실행 함수 (표현)식 
 // Immediately Invoked Function Expression
+
+// 함수가 선언됨과 동시에 실행되는 것을 말합니다.
+// 모듈프로그래밍이 없을 시절..
 let IIFE;
+
+
+// var 함수 스코프
+// let, const 블록 스코프
+
+(function(){} // parameter
+
+
+// var 함수는 전역을 오염시키므로 그걸 방지하기 위해 이런 함수를 씀
+
+
+)(window) // arguments
