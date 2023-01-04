@@ -48,7 +48,34 @@ arrowFunction()
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // pow(numeric: number, powerCount: number): number;
-let pow; 
+let pow = (numeric, powerCount) => {
+  let result = 1;
+  for(let i = 0; i < powerCount; i++){
+    result *= numeric
+  }
+
+    return result;
+};  
+
+
+
+
+let powExpression = (numeric, powerCount) => Array(powerCount).fill(null).reduce(acc=>acc * numeric,1)
+
 
 // repeat(text: string, repeatCount: number): string;
-let repeat; 
+let repeat = (text, repeatCount) => {
+  /* validation
+   if(!repeatCount){
+    throw new Error('숫자 넣어줘요')
+  }*/
+  let result = '';
+  for(let i = 0; i < repeatCount; i++){
+    result += text;
+  }
+  return result;
+}; 
+
+                                                                                    
+
+let repeatExpression = (text, repeatCount) => Array(repeatCount).fill(null).reduce(acc => acc + text, '')
