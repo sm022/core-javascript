@@ -161,7 +161,7 @@ let age = friends.reduce((acc,cur)=>{
 
 
 let template2 = todo.reduce((acc,cur)=>{
-  return /* html */ acc + `<li>할일 : ${cur}</li>`
+  // return /* html */ acc + `<li>할일 ${index + 1} : ${cur}</li>`
 },'')
 
 console.log(template2);
@@ -172,5 +172,11 @@ console.log(age);
 
 /* string ←→ array 변환 ------------------------------------------------- */
 
-// split
-// join
+let str = '하나 투투 세번 포포 오륙 식스'
+
+// split : 문자 -> 배열
+let nameArray = str.split(' ');
+console.log(nameArray);
+
+// join : 배열 -> 문자
+console.log(nameArray.join(' / '));
