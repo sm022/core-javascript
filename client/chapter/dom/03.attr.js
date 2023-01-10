@@ -35,7 +35,7 @@ console.log( first.getAttribute('class') === 'first');
 // - elementNode.setAttribute(name, value) – 속성값을 변경함
 first.setAttribute('id','box');
 first.setAttribute('some','hello');
-first.setAttribute('class','is-active');
+// first.setAttribute('class','is-active');
 // first.id = 'box'
 
 // - elementNode.removeAttribute(name) – 속성값을 지움
@@ -77,21 +77,47 @@ console.log( first.dataset.play ); // get
 // get 함수 만들기
 
 function getAttr(node,prop){
-
+  // node = '.first'
+  // prop = 'class'
 
   if(typeof node === 'string'){
     node.getNode(node);
   }
 
-  node.getAttribute(prop);
+  return node.getAttribute(prop);
+
 }
 
-getAttr('.first','class') // first
 
 
-console.assert( getAttr('.first','class') === 'first' );
+// getNodq('.first').getAttribute('class');
+
+getAttr(first, 'data-play')
+
+// const second = getNode('.second');
+
+
+// getAttr('.first','class') --> first
+
+
+// console.assert( getAttr('.first','class') === 'first' );
+
 
 // set 함수 만들기
+
+function setAttr(node,prop,value){
+  // validation : 확인
+  if(typeof node === 'string') node = getNode(node);
+  if(typeof prop !== 'string') throw new TypeError('setAttr 함수의 두 번째 인자의 타입은 문자 타입이어야 합니다.')
+  if(!value) throw new SyntaxError('setAttr 함수의 세 번째 인자는 필수값입니다.')
+
+  node.setAttribute(prop,value);
+  
+}
+
+setAttr('.first','data-value','hello');
+
+
 
 // common 함수 만들기
 
