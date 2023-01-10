@@ -129,9 +129,29 @@ setAttr('.first','data-value','hello');
 
 
 
-// common 함수 만들기
+// attr 함수 만들기
 
-attr
+// const attr = (node,prop,value) => !value ? getAttr(node,prop) : setAttr(node,prop,value);
+
+
+
+function attr(node,prop,value){
+  
+  /*
+  if(!value){
+    return getAttr(node,prop);
+  }else{
+    setAttr(node,prop,value);
+  }
+  */
+  
+  return !value ?getAttr(node,prop) : setAttr(node,prop,value);
+
+}
+
+
+console.log( attr('.first','id','container') ); 
+
 
 /*
 (function () {
