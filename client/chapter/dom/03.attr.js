@@ -108,7 +108,7 @@ setAttr('.first','data-value','hello');
 
 
 
-console.log( attr('.first','id','container') ); 
+// console.log( attr('.first','id','container') ); 
 
 
 let result = attr('.second','id');
