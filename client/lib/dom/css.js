@@ -38,3 +38,43 @@ function toggleClass(node,className){
   
   node.classList.toggle(className)
 }
+
+
+// 대상에게 속성을 받아서 이 속성 값이 뭔지를 보여줘야 함
+function getCss(node,prop){
+  if(typeof node === 'string'){
+    node = getNode(node);
+  }
+
+  if(!(prop in document.body.style)){
+    syntaxError('getCss 함수의 두 번째 인자인 prop은 유효한 css 속성이 아닙니다.')
+  }
+  return getComputedStyle(node)[prop]
+}
+
+
+// 대상에게 원하는 css 속성을 추가 = set
+function setCss(node,prop,value){
+  if(typeof node === 'string'){
+    node = getNode(node);
+  }
+
+  if(!(prop in document.body.style)){
+    syntaxError('getCss 함수의 두 번째 인자인 prop은 유효한 css 속성이 아닙니다.')
+  }
+
+  if(!value){
+    syntaxError('setCss 함수의 세 번째 인자는 필수값입니다.')
+  }
+
+  // if(value.replace(/\s+/g,'') === ''){
+    
+  // }
+
+  node.style[prop] = value;
+}
+
+ 
+const css = (node,prop,value) => {
+  return !value ? getCss(node,prop) : setCss(node,prop,value)
+}

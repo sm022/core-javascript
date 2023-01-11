@@ -34,7 +34,40 @@ removeClass('.first','aaa')
 
 // - style.cssText - "style" 속성 전체에 대응하므로 스타일 전체에 대한 문자열 저장
 
+// first.style.backgroundColor = 'red'
+// first.style.marginLeft = '30px'
+// first.style.transform = 'rotate(360deg)'
+
+console.log( first.style.fontSize );
 
 /* 계산된 스타일 읽기 ------------------------------------------------------- */
 
+
+let size = getComputedStyle(first).fontSize; // <- margin / padding 값을 바꿀 수 있음
+
+console.log( size );
+
+
+//자바스크립트에서는 객체의 key, value 값을 변수로 받기 위해서는 . 사용 x
+// [ ] 각괄호 표기법
+
+
+  // if(!value)return getCss(node,prop)
+  // else setCss(node,prop,value)
+  
+
+
+
+css('.first','font-size','100px'); //set
+css('.first','font-size'); //get
+
+
+                         // 정확한 css 속성?
+// console.log( getCss('.first','font-size') );
+
+
+// setCss('.first','color','red')
+
+
+// getCss('.first','font-size')
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`
