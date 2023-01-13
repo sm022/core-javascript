@@ -10,6 +10,15 @@
 // 5. 화면에 출력하기
 
 
+import {
+  getNode,
+  css,
+  addClass,
+  removeClass
+} from "./lib/index.js";
+
+
+
 
 
 const firstInput = getNode('#firstNumber');
