@@ -14,6 +14,10 @@
 
 
 const first = getNode('.first');
+const second = getNode('.second');
+const ground = getNode('.ground');
+const ball = getNode('.ball');
+
 
 function handler(){
   console.log('hit !');
@@ -22,18 +26,30 @@ function handler(){
 
 }
 
-// first.addEventListener('click',handler);
+first.addEventListener('click',handler);
 
 
 
+// const off = bindEvent('.first','click',handler);
+// bindEvent('.second','click',off);
 
 
-const off = bindEvent('.first','click',handler);
+ground.addEventListener('click',function(e){
+  
+  console.log(e.offsetX, e.offsetY);
+  
+  ball.style.transform = `translate(${e.offsetX - ball.offsetWidth / 2}px,$
+  {e.offsetY - ball.offsetHeight / 2}px)`
+})
 
+ground.addEventListener('mousemove',function(e){
+  console.log(e.offsetX, e.offsetY);
 
-bindEvent('.second','click',off);
+})
 
-
+// second.addEventListener('click',function){
+// first.removeEventListener('click',handler);
+// })
 
 // - addEventListener
 // - removeEventListener
