@@ -5,36 +5,33 @@ import {
   disableElement, 
   enableElement, 
   getNode, 
+  clearContents,
   getNodes,
   insertLast,
   visibleElement,
-  invisibleElement
+  invisibleElement,
+  attr
  } from "./lib/index.js";
 
 
-/*
-[ 주사위 굴리기 ]
-1. dice 애니메이션 불러오기
-2. bindEvent 유틸 함수 만들기 
-3. handleRollingDice 함수 만들고 토글로 애니메이션 제어하기 
-4. 변수 보호를 위한 클로저 + IIFE 사용하기 
-*/
+// [ 주사위 굴리기 ]
+// 1. dice 애니메이션 불러오기
+// 2. bindEvent 유틸 함수 만들기 
+// 3. handleRollingDice 함수 만들고 토글로 애니메이션 제어하기 
+// 4. 변수 보호를 위한 클로저 + IIFE 사용하기 
 
-/*
-[ 레코드 리스트 보이기 ]
-1. handleRecord 함수를 만들기
-2. disable 활성 유틸 함수 만들기
-3. handleReset 함수를 만듭니다.
-4. visible 활성 유틸 함수 만들기
-5. toggleState 유틸 함수 만들기 
-*/
+// [ 레코드 리스트 보이기 ]
+// 1. handleRecord 함수를 만들기
+// 2. disable 활성 유틸 함수 만들기
+// 3. handleReset 함수를 만듭니다.
+// 4. visible 활성 유틸 함수 만들기
+// 5. toggleState 유틸 함수 만들기 
 
-/*
-[ 레코드 템플릿 뿌리기 ]
-1. renderRecordListItem 함수 만들기
-2. HTML 템플릿 만들기
-3. 템플릿 뿌리기 
-*/
+// [ 레코드 템플릿 뿌리기 ]
+// 1. renderRecordListItem 함수 만들기
+// 2. HTML 템플릿 만들기
+// 3. 템플릿 뿌리기 
+
 
 
 // 배열의 구조 분해 할당 
@@ -43,21 +40,26 @@ const [rollingDiceButton,recordButton,resetButton] = getNodes('.buttonGroup > bu
 const recordListWrapper = getNode('.recordListWrapper')
 
 
+// 특정 대상의 속성값을 가져오거나 / 설정할 수 있는 함수 
 
+
+let count = 0;
+let total = 0;
 
 function renderRecordListItem(){
   
+  let diceValue = Number(attr('#cube','data-dice'));
+
   let template = /* html */ `
     <tr>
-      <td>0</td>
-      <td>5</td>
-      <td>5</td>
+      <td>${++count}</td>
+      <td>${diceValue}</td>
+      <td>${total += diceValue}</td>
     </tr>
   `
   
   insertLast('.recordListWrapper tbody',template)
-  
-  
+  recordListWrapper.scrollTop = recordListWrapper.scrollHeight
 }
 
 
@@ -103,7 +105,10 @@ const handleRecord =()=>{
 
 const handleReset = () => {
 
-  invisibleElement(recordListWrapper)
+  invisibleElement(recordListWrapper);
+
+  clearContents('.recordListWrapper tbody')
+
 }
 
 
