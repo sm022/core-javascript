@@ -7,7 +7,8 @@ import {
   getNode, 
   getNodes,
   visibleElement,
-  invisibleElement } 
+  invisibleElement, 
+  insertLast} 
 from "./lib/index.js";
 
 /*
@@ -46,8 +47,21 @@ const recordListWrapper = getNode('.recordListWrapper')
 // const resetButton = getNode('.buttonGroup > button:nth-child(1)');
 
 
+
+
 function renderRecordListItem(){
   
+  let template = /* html */ `
+    <tr>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+    </tr>
+  `
+  insertLast('.recordListWrapper tbody',template)
+
+
+
 }
 
 
