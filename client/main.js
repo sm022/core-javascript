@@ -29,6 +29,13 @@ from "./lib/index.js";
 5. toggleState 유틸 함수 만들기 
 */
 
+/*
+[ 레코드 템플릿 뿌리기 ]
+1. renderRecordListItem 함수 만들기
+2. HTML 템플릿 만들기
+3. 템플릿 뿌리기 
+*/
+
 // 배열의 구조 분해 할당
 const [rollingDiceButton, recordButton, resetButton] = getNodes('.buttonGroup > button');
 
@@ -38,10 +45,17 @@ const recordListWrapper = getNode('.recordListWrapper')
 // const recordButton = getNode('.buttonGroup > button:nth-child(1)');
 // const resetButton = getNode('.buttonGroup > button:nth-child(1)');
 
-disableElement()
+
+function renderRecordListItem(){
+  
+}
 
 
-// IIFE
+
+/*--------------------------------------------------------
+event
+-----------------------------------------------------------*/
+
 const handleRollingDice = (() => {
   
   let isRolling = false;
@@ -72,6 +86,8 @@ const handleRollingDice = (() => {
 const handleRecord = () =>{
   
   visibleElement(recordListWrapper)
+
+  renderRecordListItem();
 }
 
 
