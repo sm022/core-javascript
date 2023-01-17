@@ -26,12 +26,12 @@ export function xhrData({
   // const {method,url,body} = options
 
   const xhr = new XMLHttpRequest();
-  console.log(xhr);
+  // console.log(xhr);
 
   // 비동기 통신 오픈
   xhr.open(method, url)
 
-  console.log(Object.entries(headers));
+  // console.log(Object.entries(headers));
 
   // Object.entries(headers).forEach(([key,value])=>{
   //   xhr.setRequestHeader(key,value);
@@ -42,8 +42,8 @@ export function xhrData({
     
     if(status >= 200 && status < 400){
       if(readyState === 4){
-        console.log('통신 성공');
-        console.log(JSON.parse(response));
+        // console.log('통신 성공');
+        // console.log(JSON.parse(response));
         // console.log();
       }
     }else{
