@@ -2,8 +2,9 @@
 
 import { attr } from "../dom/attr.js";
 import { getNode } from '../dom/getNode.js'
+import { memo, useMemo } from "../utils/memo.js"
 
-const cube = getNode('#cube');
+memo('cube',()=> getNode('#cube'));
 
 
 
