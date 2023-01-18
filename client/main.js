@@ -6,7 +6,7 @@
 
 
 
-import { insertLast, xhrData } from "./lib/index.js";
+import { insertLast, xhrData, xhrPromise, power } from "./lib/index.js";
 
 
 

@@ -14,13 +14,15 @@ const defaultOptions = {
 }
 
 
-const power = async (options = {}) =>{
+export const power = async (options = {}) =>{
 
    const {url, ...restOptions} = {
     ...defaultOptions,
     ...options,
     headers: {...defaultOptions.headers, ...options.headers}
   }
+
+  console.log(restOptions);
 
   let response = await fetch(url,restOptions)
       
@@ -33,4 +35,40 @@ const power = async (options = {}) =>{
   return response;
 }
 
-console.log(power());
+
+power.get = (url,options) => {
+  power({
+    url,
+    ...options
+  })
+}
+
+
+power.post = (url,body,options) => {
+  power({
+    method:'POST',
+    url,
+    body: JSON.stringify(body),
+    ...options
+  })
+}
+
+
+power.put = (url,body,options) => {
+  power({
+    method:'PUT',
+    url,
+    body: JSON.stringify(body),
+    ...options
+  })
+}
+
+
+power.delete = (url,body,options) => {
+  power({
+    method:'DELETE',
+    url,
+    ...options
+  })
+}
+
