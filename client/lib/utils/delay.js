@@ -2,6 +2,7 @@
 
 
 import { getNode } from "../dom/getNode.js";
+import { isNumber,isObject } from "../utils/typeOf.js";
 
 
 
@@ -39,8 +40,29 @@ delayP()
 })
 
 
+const defaultOptions = {
+  shouldReject: false,
+  timeout: 1000,
+  data: '성공',
+  errorMessage: '알 수 없는 오류가 발생했습니다.'
+}
 
-function delayP(shouldReject = false, timeout = 1000, data='성공했습니다.', errorMessage = '알 수 없는 오류가 발생했습니다.'){
+
+export function delayP(options = {}){
+
+  // defaultOptions
+
+  let config = {...defaultOptions};
+
+
+  if(isNumber(options)){
+    config.timeout = options;
+  }
+  // 객체 합성 mixin
+
+  config = {...config, ...options};
+
+  const {shouldReject,data,errorMessage,timeout} = config; 
 
   return new Promise((resolve, reject)=>{
     
@@ -50,8 +72,12 @@ function delayP(shouldReject = false, timeout = 1000, data='성공했습니다.'
   })
 }
 
+// delayP(3000).then((res)=>{
+//   console.log(res); // 진짜 성공 
+// })
 
-delayP(false,1000,'성공했습니다.','오류가 발생했습니다.');
+
+// delayP();
 // .then(res=>console.log(res))
 // .catch(err=>console.log(err))
 
