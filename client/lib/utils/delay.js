@@ -83,4 +83,26 @@ export function delayP(options = {}){
 
 
 
-// async await
+// async : 일반 함수를 promise를 반환하는 함수로 만든다.
+// await : 1. promise가 반환하는 result를 가져오기. 
+//         2. 코드 실행 흐름 제어
+
+
+/*
+fuction delayA(){
+  return new Promise((resolve, reject) => {
+    resolve('완료')
+  })
+}
+*/
+
+
+async function delayA(){
+  return '완료'
+}
+
+
+let result = await delayA()
+
+
+console.log(result);
