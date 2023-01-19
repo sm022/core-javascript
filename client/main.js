@@ -3,7 +3,7 @@
 
 
 
-
+/* globs gsap */
 
 
 import { 
@@ -11,7 +11,9 @@ import {
   power,
   delayP,
   getNode,
-  renderUserCard
+  changeColor
+  renderUserCard,
+  renderSpinner,
 } from "./lib/index.js";
 
 
@@ -42,14 +44,30 @@ const userCardContainer = getNode('.user-card-inner');
 
 async function rendingUserList(){
 
-  let response = await power.get('https://jsonplaceholder.typicode.com/users/1')
+  renderSpinner(userCardContainer)
+  delayP(5000)
+
+  let response = await power.get(
+    'https://jsonplaceholder.typicode.com/users/1'
+  );
 
   let userData = response.data;
 
-  console.log(userData);
+  userData.forEach((data)=> {
+    renderUserCard(userCardContainer, data)  // 객체 하나만 받아서 랜더링
+  })
 
-  renderUserCard(userCardContainer, userData)
-
+  changeColor('.user-card')
+  gsap.to(gsap.utils.toArray('.user-card'),{
+  
+    x
+    renderSpinner:0,
+    opacity:1,
+    durationd:1.5,
+    stagger:0.2,
+  })
+}catch(err){
+  console.log(err);
 }
 
 
