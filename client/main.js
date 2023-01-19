@@ -27,5 +27,12 @@ xhrData.get(
   )
 */
 
+async function render(){
+  
+  let response = await power.get('https://jsonplaceholder.typicode.com/users/1')
 
 
+  console.log(response.data);
+}
+
+render()

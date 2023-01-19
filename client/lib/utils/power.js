@@ -7,7 +7,7 @@ const defaultOptions = {
   cache: 'no-cache',
   credential: 'same-origin',
   redirect: 'follow',
-  referrerPolicy: 'no-reffere',
+  referrerPolicy: 'no-refere',
   headers:{
     'Content-Type' : 'application/json; charset=UTF-8'
   }
@@ -37,7 +37,7 @@ export const power = async (options = {}) =>{
 
 
 power.get = (url,options) => {
-  power({
+  return power({
     url,
     ...options
   })
@@ -45,7 +45,7 @@ power.get = (url,options) => {
 
 
 power.post = (url,body,options) => {
-  power({
+  return power({
     method:'POST',
     url,
     body: JSON.stringify(body),
@@ -55,7 +55,7 @@ power.post = (url,body,options) => {
 
 
 power.put = (url,body,options) => {
-  power({
+  return power({
     method:'PUT',
     url,
     body: JSON.stringify(body),
@@ -65,7 +65,7 @@ power.put = (url,body,options) => {
 
 
 power.delete = (url,body,options) => {
-  power({
+  return power({
     method:'DELETE',
     url,
     ...options
