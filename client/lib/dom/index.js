@@ -5,6 +5,7 @@
 export * from './css.js'
 export * from './attr.js'
 export * from './insert.js'
+export * from './userList.js'
 export * from './getNode.js'
 export * from './showAlert.js'
 export * from './bindEvent.js'
