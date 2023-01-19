@@ -48,7 +48,7 @@ async function rendingUserList(){
   delayP(5000)
 
   let response = await power.get(
-    'https://jsonplaceholder.typicode.com/users/1'
+    'http://localhost:3000/users'
   );
 
   let userData = response.data;
@@ -72,3 +72,12 @@ async function rendingUserList(){
 
 
 rendingUserList();
+
+// 삭제 버튼을 클릭하면 콘솔창에 '삭제' 글자가 출력이 될 수 있도록 만들어 주세요.
+
+
+function hadler(e){
+  console.log(e.target.closet('button'));
+}
+
+userCardContainer.addEventListner('click',handler)
