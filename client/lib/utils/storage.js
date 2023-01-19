@@ -1,5 +1,5 @@
-
 import { isString } from "./typeOf.js";
+
 
 const {
   localStorage: storage,
@@ -36,7 +36,12 @@ const albums = [
 ];
 
 
-function saveStorage(key,value){
+// JSON.stringify()
+// serialize()
+// deserialize()
+
+
+export function saveStorage(key,value){
   return new Promise((resolve, reject) => {
     if(isString(key)){
       storage.setItem(key,value);
@@ -47,8 +52,30 @@ function saveStorage(key,value){
   })
 }
 
-saveStorage('name','power');
+export function loadStorage(key){
+  return new Promise((resolve, reject) => {
+    if(isString(key)){
+      resolve(deserialize(storage.getItem(key)))
+    }else{
+      reject({message:'key는 문자 타입이어야 합니다.'})
+    }
+  })
+}
 
+
+export function deleteStorage(key){
+  return new Promise((resolve, reject) => {
+    ! key ? storage.clear() : storage.removeItem(key);
+    resolve()
+  })
+}
+
+
+saveStorage('name',albums)
+
+console.log('name')..then((res) => {
+  console.log(deserialize(res));
+})
 
 // loadStorage('name')
 
